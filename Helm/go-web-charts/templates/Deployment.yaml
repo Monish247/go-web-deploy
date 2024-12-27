@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-web-test
+  labels:
+    app: go-web  # Corrected to match the selector and pod labels
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: go-web  # Matches the pod labels
+  template:
+    metadata:
+      labels:
+        app: go-web  # Ensures the pods have the correct label
+    spec:
+      containers:
+      - name: go-web-app
+        image: monish247/go-webapp-deploy:{{ .Values.image.tag }}
+        ports:
+        - containerPort: 8080

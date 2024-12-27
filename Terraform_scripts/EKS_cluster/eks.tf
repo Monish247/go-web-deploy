@@ -17,8 +17,8 @@ module "eks" {
     }
   }
 
-  vpc_id                   = module.vpc.vpc_id
-  subnet_ids               = module.vpc.private_subnets
+  vpc_id     = module.vpc.vpc_id
+  subnet_ids = aws_subnet.public[*].id
 
   eks_managed_node_groups = {
     dev-node = {
@@ -28,6 +28,7 @@ module "eks" {
 
       instance_types = ["t2.medium"]
       capacity_type  = "SPOT"
+      key_name       = var.ssh_key_name  # Use the variable for the key name
 
       tags = {
         ExtraTag = "Panda_Node"

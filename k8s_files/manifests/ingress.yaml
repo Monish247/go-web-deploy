@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-web-app-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx" # Specify the Ingress class (e.g., for NGINX Ingress controller)
 spec:
   rules:
   - host: go-web-app.local

@@ -30,7 +30,7 @@ module "eks" {
       capacity_type  = "SPOT"
 
       tags = {
-        ExtraTag = "dev-node"
+        ExtraTag = "Panda_Node"
       }
     }
   }

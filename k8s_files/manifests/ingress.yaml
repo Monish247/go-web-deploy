@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: Go-web-app-ingress
+  name: go-web-app-ingress
 spec:
   rules:
   - host: go-web-app.local
